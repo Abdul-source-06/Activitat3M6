@@ -12,7 +12,7 @@ La col·lecció **Llibres** conté tota la informació sobre els llibres disponi
 
 ```json
 {
-  "_id": "9876",
+  "id": "9876",
   "titol": "El nom de la rosa",
   "autor": "Umberto Eco",
   "anyPublicacio": 1980,
@@ -29,7 +29,7 @@ La col·lecció **Usuaris** emmagatzema la informació dels usuaris de l'aplicac
 
 ```json
 {
-  "_id": "1",
+  "id": "1",
   "nom": "Ana",
   "email": "ana@gmail.com",
   "llibresLlegits": ["9876", "1234", "5678"]
@@ -43,6 +43,11 @@ La col·lecció **Categories** emmagatzema la informació sobre les diferents ca
 #### Exemple d'un registre de categoria:
 ```json
 {
-  "_id": "1",
+  "id": "1",
   "nom": "Misteri"
 }
+
+```
+### Esquema relacional
+
+![Esquema Relacional](Img/ER.png)
