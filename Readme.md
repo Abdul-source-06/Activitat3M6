@@ -50,4 +50,6 @@ La col·lecció **Categories** emmagatzema la informació sobre les diferents ca
 ```
 ### Esquema relacional
 
+Aixi es veuria si fos un esquema relacional
+
 ![Esquema Relacional](Img/ER.png)
