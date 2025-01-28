@@ -44,6 +44,8 @@ La col·lecció **Categories** emmagatzema la informació sobre les diferents ca
 ```json
 {
   "id": "1",
+
+  
   "nom": "Misteri"
 }
 
@@ -53,3 +55,45 @@ La col·lecció **Categories** emmagatzema la informació sobre les diferents ca
 Aixi es veuria si fos un esquema relacional
 
 ![Esquema Relacional](Img/ER.png)
+
+# Creació de la Base de Dades
+
+![Esquema Relacional](Img/Creacio_bbdd.png)
+
+He creat la BBDD amb dues colecions: **Llibres i Categories**
+
+![Esquema Relacional](Img/CreacioCollection.png)
+
+## Despres de l'imortació dels dos fitxers, aquestes son les consultes desde MongoDB Shell (mongosh):
+
+### 1- De la col·lecció Llibres:
+
+![Esquema Relacional](Img/Consulta1_Llibres.png)
+
+
+![Esquema Relacional](Img/Consulta2_Llibres.png)
+
+
+![Esquema Relacional](Img/Consulta3_Llibres.png)
+
+
+![Esquema Relacional](Img/Consulta4_Llibres.png)
+
+
+### 2- De la col·lecció Categories:
+
+![Esquema Relacional](Img/Consulta1_Cate.png)
+
+
+![Esquema Relacional](Img/Consulta2_Cate.png)
+
+
+## Desde compass:
+
+![Esquema Relacional](Img/Compass_con1.png)
+
+![Esquema Relacional](Img/Compass_con2.png)
+
+![Esquema Relacional](Img/Compass_con3.png)
+
+
