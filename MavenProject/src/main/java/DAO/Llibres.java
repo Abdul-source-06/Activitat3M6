@@ -1,8 +1,9 @@
 
-package Libress;
+package DAO;
 
 import java.sql.Date;
 import java.util.List;
+import org.bson.Document;
 
 public class Llibres {
 	
@@ -69,6 +70,16 @@ public class Llibres {
 	public void setDescripcio(String descripcio) {
 		this.descripcio = descripcio;
 	}
+	
+	 // Convertir un Llibre a un Document de MongoDB
+    public Document toDocument() {
+        return new Document("_id", id)
+                .append("titol", titol)
+                .append("autor", autor)
+                .append("anyPublicacio", any_Publicacio)
+                .append("descripcio", descripcio)
+                .append("categories", categories);
+    }
 	
 	@Override
     public String toString() {
