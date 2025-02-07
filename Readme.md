@@ -32,7 +32,6 @@ La col·lecció **Usuaris** emmagatzema la informació dels usuaris de l'aplicac
   "id": "1",
   "nom": "Ana",
   "email": "ana@gmail.com",
-  "llibresLlegits": ["9876", "1234", "5678"]
 }
 
 ```
@@ -44,8 +43,6 @@ La col·lecció **Categories** emmagatzema la informació sobre les diferents ca
 ```json
 {
   "id": "1",
-
-  
   "nom": "Misteri"
 }
 

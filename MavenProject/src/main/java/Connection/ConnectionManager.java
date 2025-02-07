@@ -1,28 +1,40 @@
 package Connection;
 
-import com.mongodb.MongoException;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import org.bson.Document;
+import java.util.logging.Logger;
+import java.util.logging.Level;
 
 public class ConnectionManager {
-	private static final String URI = "mongodb+srv://Abdul:abdul1234@cluster1.8tcez.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1";
+    
+    private static final Logger LOGGER = Logger.getLogger(ConnectionManager.class.getName());
+    private static final String URI = "mongodb+srv://Abdul:abdul1234@cluster1.8tcez.mongodb.net/LlibCat?retryWrites=true&w=majority&appName=Cluster1";
+    private static MongoClient mongoClient = null;
 
-	public static MongoClient createMongoClient() {
-		return MongoClients.create(URI);
-	}
+    public static MongoClient getConnection() {
+        if (mongoClient == null) { 
+            try {
+                LOGGER.info("Intentando conectar a MongoDB...");
+                mongoClient = MongoClients.create(URI);
+                LOGGER.info("Conexión establecida correctamente.");
+            } catch (Exception e) {
+                LOGGER.log(Level.SEVERE, "Error al conectar con MongoDB", e);
+            }
+        }
+        return mongoClient;
+    }
 
-	public static void main(String[] args) {
-		try (MongoClient mongoClient = createMongoClient()) {
-			MongoDatabase database = mongoClient.getDatabase("LlibCat");
-			MongoCollection<Document> collection = database.getCollection("Llibres");
+    public static MongoDatabase getDatabase() {
+        return getConnection().getDatabase("LlibCat");
+    }
 
-			System.out.println("Conexión establecida exitosamente");
-		} catch (MongoException e) {
-			System.err.println("Error de conexión: " + e.getMessage());
-			e.printStackTrace();
-		}
-	}
+    public static void closeConnection() {
+        if (mongoClient != null) {
+            LOGGER.info("Cerrando conexión con MongoDB...");
+            mongoClient.close();
+            mongoClient = null;
+            LOGGER.info("Conexión cerrada.");
+        }
+    }
 }

@@ -1,6 +1,6 @@
 [
   {
-    "_id": "1",
+
     "titol": "El nom de la rosa",
     "autor": "Umberto Eco",
     "anyPublicacio": 1980,
@@ -8,7 +8,7 @@
     "categories": ["Misteri"]
   },
   {
-    "_id": "2",
+
     "titol": "1984",
     "autor": "George Orwell",
     "anyPublicacio": 1949,
@@ -16,7 +16,7 @@
     "categories": ["Ciència Ficció"]
   },
   {
-    "_id": "3",
+
     "titol": "La màquina del temps",
     "autor": "H.G. Wells",
     "anyPublicacio": 1895,
@@ -24,7 +24,7 @@
     "categories": ["Ciència Ficció"]
   },
   {
-    "_id": "4",
+
     "titol": "Cien años de soledad",
     "autor": "Gabriel García Márquez",
     "anyPublicacio": 1967,
@@ -32,7 +32,7 @@
     "categories": ["Realisme Màgic"]
   },
   {
-    "_id": "5",
+
     "titol": "La casa de los espíritus",
     "autor": "Isabel Allende",
     "anyPublicacio": 1982,
@@ -40,7 +40,7 @@
     "categories": ["Ficció"]
   },
   {
-    "_id": "6",
+
     "titol": "Fahrenheit 451",
     "autor": "Ray Bradbury",
     "anyPublicacio": 1953,
@@ -48,7 +48,7 @@
     "categories": ["Ciència Ficció"]
   },
   {
-    "_id": "7",
+
     "titol": "Crónica de una muerte anunciada",
     "autor": "Gabriel García Márquez",
     "anyPublicacio": 1981,
@@ -56,7 +56,7 @@
     "categories": ["Misteri"]
   },
   {
-    "_id": "8",
+
     "titol": "Don Quijote de la Mancha",
     "autor": "Miguel de Cervantes",
     "anyPublicacio": 1605,
@@ -64,7 +64,7 @@
     "categories": ["Clàssic"]
   },
   {
-    "_id": "9",
+
     "titol": "El gran Gatsby",
     "autor": "F. Scott Fitzgerald",
     "anyPublicacio": 1925,
@@ -72,7 +72,7 @@
     "categories": ["Ficció"]
   },
   {
-    "_id": "10",
+  
     "titol": "El retrat de Dorian Gray",
     "autor": "Oscar Wilde",
     "anyPublicacio": 1890,
@@ -88,7 +88,7 @@
     "categories": ["Aventura"]
   },
   {
-    "_id": "12",
+  
     "titol": "Matar un ruiseñor",
     "autor": "Harper Lee",
     "anyPublicacio": 1960,
@@ -96,7 +96,7 @@
     "categories": ["Drama"]
   },
   {
-    "_id": "13",
+  
     "titol": "La ciudad y los perros",
     "autor": "Mario Vargas Llosa",
     "anyPublicacio": 1963,
@@ -104,7 +104,7 @@
     "categories": ["Ficció"]
   },
   {
-    "_id": "14",
+  
     "titol": "V de vendetta",
     "autor": "Alan Moore",
     "anyPublicacio": 1982,
@@ -112,7 +112,7 @@
     "categories": ["Ciència Ficció"]
   },
   {
-    "_id": "15",
+  
     "titol": "Los pilares de la tierra",
     "autor": "Ken Follett",
     "anyPublicacio": 1989,
@@ -120,7 +120,7 @@
     "categories": ["Història"]
   },
   {
-    "_id": "16",
+  
     "titol": "El alquimista",
     "autor": "Paulo Coelho",
     "anyPublicacio": 1988,
@@ -128,7 +128,7 @@
     "categories": ["Ficció"]
   },
   {
-    "_id": "17",
+  
     "titol": "Harry Potter y la piedra filosofal",
     "autor": "J.K. Rowling",
     "anyPublicacio": 1997,

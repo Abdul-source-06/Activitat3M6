@@ -2,13 +2,13 @@ package DAO;
 
 public class User {
 	private String name;
-	private String Surname;
+	private String gmail;
 	private String paswd;
 
 	public User(String nombre, String apellido, String password) {
 		this.name = nombre;
-		this.Surname = apellido;
-		this.setPaswd(password);
+		this.gmail = apellido;
+		this.paswd=(password);
 	}
 
 	// Getters
@@ -16,8 +16,8 @@ public class User {
 		return name;
 	}
 
-	public String getSurname() {
-		return Surname;
+	public String getGmail() {
+		return gmail;
 	}
 
 	// Setters
@@ -25,8 +25,8 @@ public class User {
 		this.name = nombre;
 	}
 
-	public void setSurname(String apellido) {
-		this.Surname = apellido;
+	public void setGmail(String apellido) {
+		this.gmail = apellido;
 	}
 
 	public String getPaswd() {

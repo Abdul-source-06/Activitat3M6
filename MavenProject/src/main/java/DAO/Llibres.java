@@ -10,12 +10,11 @@ public class Llibres {
 	private String id;
 	private String titol;
 	private String autor;
-	private Date any_Publicacio;
+	private int any_Publicacio;
 	private String descripcio;
-	private List<String> categories;
+	private String categories;
 	
-	public Llibres(String id, String titol, String autor, Date any_publicacio, String descripcio, List<String> categories) {
-		this.id=(id);
+	public Llibres(String titol, String autor, int any_publicacio, String descripcio, String categories) {
 		this.titol=(titol);
 		this.autor=(autor);
 		this.any_Publicacio=(any_publicacio);
@@ -23,6 +22,7 @@ public class Llibres {
 		this.categories=(categories);
 	}
 
+	/*
 	public String getId() {
 		return id;
 	}
@@ -30,7 +30,7 @@ public class Llibres {
 	public void setId(String id) {
 		this.id = id;
 	}
-
+	 */
 	public String getAutor() {
 		return autor;
 	}
@@ -47,19 +47,19 @@ public class Llibres {
 		this.titol = titol;
 	}
 
-	public Date getAny_Publicacio() {
+	public int getAny_Publicacio() {
 		return any_Publicacio;
 	}
 
-	public void setAny_Publicacio(Date any_Publicacio) {
+	public void setAny_Publicacio(int any_Publicacio) {
 		this.any_Publicacio = any_Publicacio;
 	}
 
-	public List<String> getCategories() {
+	public String getCategories() {
 		return categories;
 	}
 
-	public void setCategories(List<String> categories) {
+	public void setCategories(String categories) {
 		this.categories = categories;
 	}
 
