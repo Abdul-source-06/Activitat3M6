@@ -131,10 +131,10 @@ public class view {
 
 	}
 
-	public int getYearFromUser() {
-	    System.out.print("Enter the year of publication: ");
+	public int getYearFromUser(String message) {
+	    System.out.print(message);
 	    while (!sc.hasNextInt()) {
-	        System.err.println("Invalid year, please enter a number:");
+	        System.err.println("Invalid input. Enter a valid year:");
 	        sc.next();
 	    }
 	    return sc.nextInt();

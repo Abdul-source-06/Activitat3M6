@@ -17,76 +17,78 @@ import Model.UserCRUD;
 import View.view;
 
 public class Conntroler {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        MongoClient db = ConnectionManager.getConnection();
-        view View = new view(sc);
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		MongoClient db = ConnectionManager.getConnection();
+		view View = new view(sc);
 
-        UserCRUD user = new UserCRUD(db);
-        LlibresCRUD bookCRUD = new LlibresCRUD(db);
+		UserCRUD user = new UserCRUD(db);
+		LlibresCRUD bookCRUD = new LlibresCRUD(db);
 
-        boolean exit = false; 
+		boolean exit = false;
 
-        while (!exit) {
-            View.mainMenu();
-            int option = sc.nextInt();
+		while (!exit) {
+			View.mainMenu();
+			int option = sc.nextInt();
 
-            switch (option) {
-                case 1: // Login
-                    if (View.login()) {
-                        boolean loggedIn = true;
+			switch (option) {
+			case 1: // Login
+				if (View.login()) {
+					boolean loggedIn = true;
 
-                        while (loggedIn) {
-                            View.secondMenu();
-                            int option2 = sc.nextInt();
-                            switch (option2) {
-                                case 1:
-                                    Llibres llib = View.addNewBook();
-                                    bookCRUD.addBook(llib);
-                                    break;
+					while (loggedIn) {
+						View.secondMenu();
+						int option2 = sc.nextInt();
+						switch (option2) {
+						case 1:
+							Llibres llib = View.addNewBook();
+							bookCRUD.addBook(llib);
+							break;
 
-                                case 2:
-                                    ArrayList<Llibres> llibres = bookCRUD.getAll();
-                                    View.getAll(llibres);
-                                    break;
+						case 2:
+							ArrayList<Llibres> llibres = bookCRUD.getAll();
+							View.getAll(llibres);
+							break;
 
-                                case 3:
-                                    int year = View.getYearFromUser();
-                                    ArrayList<Llibres> bookByYear = bookCRUD.getBooksByYear(year);
-                                    View.showBooks(bookByYear);
-                                    break;
+						case 3:
+							int dataInici = View.getYearFromUser("Enter start year: ");
+							int dataFi = View.getYearFromUser("Enter end year: ");
 
-                                case 4: 
-                                    loggedIn = false; // Solo sale del segundo menú y regresa al login
-                                    break;
+							ArrayList<Llibres> booksByYear = bookCRUD.getBooksByDateRange(dataInici, dataFi);
+							View.showBooks(booksByYear);
+							break;
 
-                                default:
-                                    System.err.println("Invalid option. Please try again.");
-                                    break;
-                            }
-                        }
-                    } else {
-                        System.err.println("Login failed. Please try again.");
-                    }
-                    break;
+						case 4:
+							loggedIn = false; // Solo sale del segundo menú y regresa al login
+							break;
 
-                case 2: // Registro de usuario
-                    User newUser = View.register();
-                    if (newUser != null) {
-                        user.addUser(newUser);
-                    }
-                    break;
+						default:
+							System.err.println("Invalid option. Please try again.");
+							break;
+						}
+					}
+				} else {
+					System.err.println("Login failed. Please try again.");
+				}
+				break;
 
-                case 3: // Salir del programa
-                    exit = true;
-                    break;
+			case 2: // Registro de usuario
+				User newUser = View.register();
+				if (newUser != null) {
+					user.addUser(newUser);
+				}
+				break;
 
-                default:
-                    System.err.println("Invalid option. Please try again.");
-                    break;
-            }
-        }
+			case 3: // Salir del programa
+				exit = true;
+				break;
 
-        sc.close(); 
-    }
+			default:
+				System.err.println("Invalid option. Please try again.");
+				break;
+			}
+		}
+
+		sc.close();
+	}
 }

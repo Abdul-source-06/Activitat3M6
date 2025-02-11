@@ -5,11 +5,13 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.bson.Document;
+import org.bson.conversions.Bson;
 
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
 
 import DAO.Llibres;
 
@@ -57,23 +59,29 @@ public class LlibresCRUD {
 		return allBooks;
 	}
 	
-	public ArrayList<Llibres> getBooksByYear(int year) {
-	    ArrayList<Llibres> booksByYear = new ArrayList<>();
-	    MongoCollection<Document> collection = database.getCollection("Llibres");
+	 public ArrayList<Llibres> getBooksByDateRange(int dataInici, int dataFi) {
+	        ArrayList<Llibres> booksByDateRange = new ArrayList<>();
+	        MongoCollection<Document> collection = database.getCollection("Llibres");
 
-	    for (Document dc : collection.find(new Document("anyPublicacio", year))) {
-	        Llibres l = new Llibres();
-	        l.setTitol(dc.getString("titol"));
-	        l.setAutor(dc.getString("autor"));
-	        l.setAny_Publicacio(dc.getInteger("anyPublicacio"));
-	        l.setDescripcio(dc.getString("descripcio"));
-	        l.setCategories(dc.getList("categories", String.class));
+	        // Filtro para encontrar libros entre dataInici y dataFi
+	        Bson filter = Filters.and(
+	            Filters.gte("anyPublicacio", dataInici),
+	            Filters.lte("anyPublicacio", dataFi)
+	        );
 
-	        booksByYear.add(l);
+	        for (Document dc : collection.find(filter)) {
+	            Llibres l = new Llibres();
+	            l.setTitol(dc.getString("titol"));
+	            l.setAutor(dc.getString("autor"));
+	            l.setAny_Publicacio(dc.getInteger("anyPublicacio"));
+	            l.setDescripcio(dc.getString("descripcio"));
+	            l.setCategories(dc.getList("categories", String.class));
+
+	            booksByDateRange.add(l);
+	        }
+
+	        return booksByDateRange;
 	    }
-
-	    return booksByYear;
-	}
 
 
 }
