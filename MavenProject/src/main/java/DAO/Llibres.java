@@ -7,19 +7,22 @@ import org.bson.Document;
 
 public class Llibres {
 	
-	private String id;
+	 // private String id;
 	private String titol;
 	private String autor;
 	private int any_Publicacio;
 	private String descripcio;
-	private String categories;
+	private List<String> categories;
 	
-	public Llibres(String titol, String autor, int any_publicacio, String descripcio, String categories) {
+	public Llibres(String titol, String autor, int any_publicacio, String descripcio, List<String> categories) {
 		this.titol=(titol);
 		this.autor=(autor);
 		this.any_Publicacio=(any_publicacio);
 		this.descripcio=(descripcio);
 		this.categories=(categories);
+	}
+	public Llibres() {
+		
 	}
 
 	/*
@@ -55,11 +58,11 @@ public class Llibres {
 		this.any_Publicacio = any_Publicacio;
 	}
 
-	public String getCategories() {
+	public List<String> getCategories() {
 		return categories;
 	}
 
-	public void setCategories(String categories) {
+	public void setCategories(List<String> categories) {
 		this.categories = categories;
 	}
 
@@ -73,7 +76,7 @@ public class Llibres {
 	
 	 // Convertir un Llibre a un Document de MongoDB
     public Document toDocument() {
-        return new Document("_id", id)
+        return new Document()
                 .append("titol", titol)
                 .append("autor", autor)
                 .append("anyPublicacio", any_Publicacio)
@@ -84,11 +87,10 @@ public class Llibres {
 	@Override
     public String toString() {
         return "Llibre: " +
-                "Id='" + id + '\'' +
-                ", Titol='" + titol + '\'' +
+                "{Titol='" + titol + '\'' +
                 ", Autor='" + autor + '\'' +
                 ", Any de Publicacio=" + any_Publicacio +
                 ", Descripcio='" + descripcio + '\'' +
-                ", Categories=" + categories;
+                ", Categories=" + categories + "}";
     }
 }
