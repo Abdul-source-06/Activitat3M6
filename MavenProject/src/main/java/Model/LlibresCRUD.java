@@ -49,12 +49,31 @@ public class LlibresCRUD {
 			l.setTitol(dc.getString("titol"));
 			l.setAutor(dc.getString("autor"));
 			l.setAny_Publicacio(dc.getInteger("anyPublicacio"));
-			l.setDescripcio(dc.getString("descriptio"));
+			l.setDescripcio(dc.getString("descripcio"));
 			l.setCategories(dc.getList("categories", String.class));
 			
 			allBooks.add(l);
 		}
 		return allBooks;
 	}
+	
+	public ArrayList<Llibres> getBooksByYear(int year) {
+	    ArrayList<Llibres> booksByYear = new ArrayList<>();
+	    MongoCollection<Document> collection = database.getCollection("Llibres");
+
+	    for (Document dc : collection.find(new Document("anyPublicacio", year))) {
+	        Llibres l = new Llibres();
+	        l.setTitol(dc.getString("titol"));
+	        l.setAutor(dc.getString("autor"));
+	        l.setAny_Publicacio(dc.getInteger("anyPublicacio"));
+	        l.setDescripcio(dc.getString("descripcio"));
+	        l.setCategories(dc.getList("categories", String.class));
+
+	        booksByYear.add(l);
+	    }
+
+	    return booksByYear;
+	}
+
 
 }

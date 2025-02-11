@@ -131,13 +131,62 @@ public class view {
 
 	}
 
+	public int getYearFromUser() {
+	    System.out.print("Enter the year of publication: ");
+	    while (!sc.hasNextInt()) {
+	        System.err.println("Invalid year, please enter a number:");
+	        sc.next();
+	    }
+	    return sc.nextInt();
+	}
+
+	public void showBooks(List<Llibres> books) {
+	    if (books.isEmpty()) {
+	        System.out.println("No books found for the given year.");
+	    } else {
+	        System.out.println("\nBooks found:");
+	        for (Llibres book : books) {
+	            System.out.println("Title: " + book.getTitol());
+	            System.out.println("Author: " + book.getAutor());
+	            System.out.println("Year: " + book.getAny_Publicacio());
+	            System.out.println("Description: " + book.getDescripcio());
+	            System.out.println("Category: " + book.getCategories());
+	            System.out.println("-----------------------------");
+	        }
+	    }
+	}
+
+
+	public void mainMenu() {
+		System.out.println("-----------------------------");
+		System.out.println("=== Welcome to LlibCat ===");
+		System.out.println("-----------------------------");
+		System.out.println("1. Login");
+		System.out.println("2. Register");
+		System.out.println("\nChoose an option: ");
+		System.out.println("-----------------------------");
+
+		while (!sc.hasNextInt()) {
+			System.err.println("Invalid option, enter a number 1/2:");
+			sc.next();
+		}
+
+	}
+
 	public void secondMenu() {
-		System.out.println("\n=== LLIBCAT - Library ===");
+		System.out.println("-----------------------------");
+		System.out.println("=== LLIBCAT - Library ===");
 		System.out.println("1. Add book");
 		System.out.println("2. See all books");
 		System.out.println("3. Search book by date");
-		System.out.println("0. Exit");
-		System.out.print("\nSelect an option: ");
+		System.out.println("4. Exit");
+		System.out.println("\nSelect an option: ");
+		System.out.println("-----------------------------");
+
+		while (!sc.hasNextInt()) {
+			System.err.println("Invalid option, enter a number between 1-4:");
+			sc.next();
+		}
 
 	}
 }
